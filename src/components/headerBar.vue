@@ -3,7 +3,8 @@
     <van-nav-bar title="我的积分"
                  fixed
                  placeholder
-                 z-index="999">
+                 z-index="999"
+                 @click-left="goBack">
       <template #left>
         <van-icon name="cross"
                   size="18" />
@@ -14,7 +15,12 @@
 
 <script>
 export default {
-
+  name: 'HeaderBar',
+  methods: {
+    goBack() {
+      history.go(-1)
+    }
+  }
 }
 </script>
 

@@ -2,7 +2,7 @@
   <div class="rank-header">
 
     <div class="rank-header-left">
-      <div class="fraction">210</div>
+      <div class="fraction">{{ $store.state.point }}</div>
       <div>今日获得积分</div>
     </div>
 
@@ -27,14 +27,14 @@
 <script>
 import Hexagon from '@c/hexagon'
 export default {
-  name: "homeBg",
+  name: 'homeBg',
   components: {
     Hexagon
   },
   props: {
     userPointObj: {
       type: Object,
-      default: () => { }
+      default: () => {}
     }
   }
 }

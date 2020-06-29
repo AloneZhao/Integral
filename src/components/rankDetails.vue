@@ -40,11 +40,12 @@ export default {
         .then(res => {
           let { records } = res.data
           let data = records.map(item => {
-            this.total += item.point
+            this.total += parseFloat(item.point)
             item.date = item.date.split(' ')[0]
             item.point = parseFloat(item.point)
             return { ...item }
           })
+          this.$store.commit('totalPoin', this.total)
           this.rankDetails.push(...data)
           this.loading = false
           if (records.length < 10) {
@@ -55,6 +56,7 @@ export default {
         })
         .catch(err => {
           console.log('err', err)
+          this.$toast('获取数据失败')
         })
     },
     onLoad() {

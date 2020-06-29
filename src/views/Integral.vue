@@ -27,7 +27,6 @@ export default {
   data() {
     return {
       userPointObj: {
-        userName: '', // 用户名
         quarterPoint: 0, // 季度总积分
         totalPoint: 0 // 累计总积分
       }
@@ -38,10 +37,8 @@ export default {
     getIntegral(id) {
       getUserIntegral(id)
         .then(res => {
-          // console.log('res', res)
           this.userPointObj.totalPoint = parseFloat(res.data.userPointObj.totalPoint)
           this.userPointObj.quarterPoint = parseFloat(res.data.userPointObj.quarterPoint)
-          this.userPointObj.userName = res.data.userPointObj.userName
         })
         .catch(err => {
           console.log(err)

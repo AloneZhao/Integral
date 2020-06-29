@@ -13,7 +13,9 @@
             <img :src="item.avatarUrl">
             <span>{{ item.userName }}</span>
           </div>
-          <div class="rank-list-data-fraction">{{ parseFloat(item.totalPoint) }}</div>
+          <div class="rank-list-data-fraction">
+            {{ flag === 0 ? parseFloat(item.quarterPoint) : parseFloat(item.totalPoint)}}
+          </div>
         </div>
       </van-list>
     </div>
@@ -41,7 +43,7 @@ export default {
       }
       getUserRank(params, id)
         .then(res => {
-          const { records } = res.data
+          const { records } = res.data // 获取每个用户相关的积分信息
           this.quarterList.push(...records)
           this.loading = false // 改变加载状态
           if (records.length < 10) {
@@ -52,6 +54,7 @@ export default {
         })
         .catch(err => {
           console.log('err', err)
+          this.$toast('获取数据失败')
         })
     },
     onLoad() {
