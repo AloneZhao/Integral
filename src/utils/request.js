@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // const BASE = process.env.NODE_ENV === "production" ? "" : "http://test4.tx131.com:8713/"
-const BASE = "http://test4.tx131.com:8713/"
+const BASE = "http://127.0.0.1:8713/"
 
 const service = axios.create({
   baseURL: BASE,
