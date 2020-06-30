@@ -6,13 +6,14 @@ Vue.use(VueRouter);
 
 const routes = [{
     path: "/",
-    redirect: "Integral"
-  },
-  {
-    path: "/integral",
-    name: "Integral",
+    name: 'home',
     component: Integral
   }
+  // {
+  //   path: "/integral",
+  //   name: "Integral",
+  //   component: Integral
+  // }
 ];
 
 const router = new VueRouter({

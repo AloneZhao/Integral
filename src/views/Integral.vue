@@ -53,6 +53,7 @@ export default {
     RankSeniority
   },
   mounted() {
+    console.log('路由地址', this.$route);
     let userId = this.$route.query.userId
     this.getIntegral(userId)
   }
