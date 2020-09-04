@@ -31,11 +31,13 @@ export default {
       quarterList: [],
       loading: false,
       finished: false,
-      current: 1
+      current: 1,
+      pages: 0
     }
   },
   methods: {
     getRank(id) {
+      this.pages++
       let params = {
         current: this.current,
         size: 10,
@@ -43,7 +45,10 @@ export default {
       }
       getUserRank(params, id)
         .then(res => {
-          const { records } = res.data // 获取每个用户相关的积分信息
+          const { records } = res.data.rank // 获取每个用户相关的积分信息
+          records.forEach(item => {
+            item.rank = item.rank + (this.pages - 1) * 10
+          })
           this.quarterList.push(...records)
           this.loading = false // 改变加载状态
           if (records.length < 10) {

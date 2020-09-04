@@ -34,9 +34,10 @@ export default {
     getUserInfo(id) {
       let params = {
         current: this.current,
-        size: 10
+        size: 10,
+        id
       }
-      getUserIntegralSource(params, id)
+      getUserIntegralSource(params)
         .then(res => {
           let { records } = res.data
           let data = records.map(item => {

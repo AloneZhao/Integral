@@ -16,7 +16,11 @@ function getUserIntegral(data) {
 function getUserIntegralSource(data, id) {
   return service.request({
     method: 'post',
-    url: `pointssystem/pointsRecord/${id}`,
+    url: `pointssystem/pointsRecord`,
+    data: {
+      ...data,
+      id
+    },
     params: data
   })
 }
